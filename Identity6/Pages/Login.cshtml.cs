@@ -11,7 +11,7 @@ namespace Identity6.Pages
         private readonly SignInManager<IdentityUser> signInManager;
 
         [BindProperty]
-        public Login Login { get; set; }
+        public ViewModels.LoginModel Login { get; set; }
 
         public LoginModel(SignInManager<IdentityUser> signInManager)
         {
@@ -22,7 +22,7 @@ namespace Identity6.Pages
         {
         }
 
-        public async Task<IActionResult> OnPostAsync(string returnUrl = null)
+        public async Task<IActionResult> OnPostAsync(string? returnUrl = null)
         {
             if (ModelState.IsValid)
             {
@@ -42,6 +42,7 @@ namespace Identity6.Pages
                 ModelState.AddModelError("", "Username or password incorrect.");
             }
 
+            var errors = ModelState.Where(x => x.Value.Errors.Count > 0).Select(x => new { x.Key, x.Value.Errors }).ToArray();
             return Page();
         }
     }

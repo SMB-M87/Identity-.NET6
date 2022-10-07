@@ -1,8 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Identity6.ViewModels
 {
-    public class Register
+    public class LoginModel
     {
         [Required]
         [DataType(DataType.EmailAddress)]
@@ -12,9 +13,7 @@ namespace Identity6.ViewModels
         [DataType(DataType.Password)]
         public string Password { get; set; }
 
-        [Required]
-        [DataType(DataType.Password)]
-        [Compare(nameof(Password), ErrorMessage = "Password and confirmation password didn't match.")]
-        public string ConfirmPassword { get; set; }
+        [NotMapped]
+        public bool RememberMe { get; set; }
     }
 }

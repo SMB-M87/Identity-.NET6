@@ -2,7 +2,6 @@ using Identity6.ViewModels;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using System.Threading.Tasks;
 
 namespace Identity6.Pages
 {
@@ -12,7 +11,7 @@ namespace Identity6.Pages
         private readonly SignInManager<IdentityUser> signInManager;
 
         [BindProperty]
-        public Register Register { get; set; }
+        public ViewModels.RegisterModel Register { get; set; }
 
         public RegisterModel(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager)
         {

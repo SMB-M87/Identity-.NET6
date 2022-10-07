@@ -2,7 +2,7 @@
 
 namespace Identity6.ViewModels
 {
-    public class Login
+    public class RegisterModel
     {
         [Required]
         [DataType(DataType.EmailAddress)]
@@ -12,6 +12,9 @@ namespace Identity6.ViewModels
         [DataType(DataType.Password)]
         public string Password { get; set; }
 
-        public bool RememberMe { get; set; }
+        [Required]
+        [DataType(DataType.Password)]
+        [Compare(nameof(Password), ErrorMessage = "Password and confirmation password didn't match.")]
+        public string ConfirmPassword { get; set; }
     }
 }

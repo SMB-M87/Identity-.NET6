@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Identity6.Migrations
 {
     [DbContext(typeof(AuthDbContext))]
-    [Migration("20221003140649_AddAuthentication")]
-    partial class AddAuthentication
+    [Migration("20221007013921_IdentitySix")]
+    partial class IdentitySix
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
